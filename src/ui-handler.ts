@@ -1,6 +1,6 @@
 export function clickOn(selector: string): void {
   const checkIfElementExist = setInterval(() => {
-    const element: HTMLElement = document.querySelector(selector);
+    const element: HTMLElement | null = document.querySelector(selector);
     if (element) {
       element.click();
       clearInterval(checkIfElementExist);
@@ -8,16 +8,16 @@ export function clickOn(selector: string): void {
   }, 100);
 };
 
-export function delay(ms) {
+export function delay(ms: number) {
   return new Promise(res => {
     console.log('Waiting... ', ms);
     return setTimeout(res, ms);
   });
 }
 
-export function fillAmount(amount) {
+export function fillAmount(amount: string | number) {
   const checkIfElementExist = setInterval(() => {
-    const element = document.querySelector('[data-element-handle="foldertab-active"] input');
+    const element: HTMLElement | null = document.querySelector('[data-element-handle="foldertab-active"] input');
     if (element) {
       setNativeValue(element, amount);
       element.dispatchEvent(new Event('input', { bubbles: true }));
@@ -27,15 +27,15 @@ export function fillAmount(amount) {
   }, 100);
 }
 
-function setNativeValue(element, value) {
-  const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
+function setNativeValue(element: HTMLElement | null, value: string | number) {
+  const valueSetter = Object.getOwnPropertyDescriptor(element, 'value')?.set;
   const prototype = Object.getPrototypeOf(element);
-  const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+  const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set;
 
   if (valueSetter && valueSetter !== prototypeValueSetter) {
-    prototypeValueSetter.call(element, value);
+    prototypeValueSetter?.call(element, value);
   } else {
-    valueSetter.call(element, value);
+    valueSetter?.call(element, value);
   }
 }
 

@@ -19,7 +19,7 @@ function getAmountPerCoin(nodes: HTMLElement[]): HTMLElement[] {
   nodes.forEach((element) => {
     const amount = parseFloat(element?.innerHTML?.replace(',', '')?.replace('€', ''));
     const regex = /[A-Z]/g;
-    const coin = element?.nextSibling?.innerHTML?.match(regex)?.join('');
+    const coin = (element?.nextSibling as HTMLElement)?.innerHTML?.match(regex)?.join('');
 
     result.push({ coin, amount });
   })

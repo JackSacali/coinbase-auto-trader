@@ -1,7 +1,9 @@
+import { IndexString } from "./interfaces";
+
 export const MAIN_TARGET_STABLE_COIN = 'DAI';
 export const EXPECTED_AMOUNT = 52;
 
-export const SELECTORS = {
+export const SELECTORS: IndexString = {
   BUY_SELL: '.iKhbZm',
   CONVERT_TAB: '[data-element-handle="folder-tab-convert"]',
   CURRENCY_LIST_FROM: '[data-element-handle="convert-from-selector"]',
@@ -11,7 +13,7 @@ export const SELECTORS = {
   OVERLAY: '.hFwduY__overlay',
 };
 
-export const COINS_SELECTOR_PAIRS = {
+export const COINS_SELECTOR_PAIRS: IndexString = {
   AAVE: 'aave',
   ALGO: 'algorand',
   ATOM: 'cosmos',

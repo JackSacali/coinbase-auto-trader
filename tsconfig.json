@@ -1,13 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "ESNext",
-    "lib": [
-      "dom",
-      "es6",
-      "dom.iterable",
-      "scripthost"
-    ],
     "sourceMap": true,
     "removeComments": true,
     "noEmitOnError": true,
@@ -16,7 +10,11 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "outDir": "./dist/",
+    "allowJs": true
   },
   "files": ["src/index.ts"]
 }
