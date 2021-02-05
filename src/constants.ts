@@ -2,6 +2,7 @@ import { IndexString } from "./interfaces";
 
 export const MAIN_TARGET_STABLE_COIN = 'DAI';
 export const EXPECTED_AMOUNT = 52;
+export const AMOUNT_TO_KEEP = 50;
 
 export const SELECTORS: IndexString = {
   BUY_SELL: '.iKhbZm',
@@ -11,6 +12,7 @@ export const SELECTORS: IndexString = {
   CONVERT_PREVIEW_BUTTON: '[data-element-handle="convert-preview-button"]',
   CONVERT_CONFIRM_BUTTON: '[data-element-handle="convert-confirm-button"]',
   OVERLAY: '.hFwduY__overlay',
+  COIN_VALUE: '.hdlfEh',
 };
 
 export const COINS_SELECTOR_PAIRS: IndexString = {
@@ -57,3 +59,46 @@ export const COINS_SELECTOR_PAIRS: IndexString = {
   ZEC: 'zcash',
   ZRX: '0x',
 };
+
+export const ACCEPTED_COINS = [
+  'AAVE',
+  'ALGO',
+  'ATOM',
+  'BAL',
+  'BAT',
+  'BAND',
+  'BCH',
+  'BNT',
+  'BTC',
+  'CGLD',
+  'COMP',
+  'CVC',
+  'DASH',
+  'DNT',
+  'EOS',
+  'ETC',
+  'ETH',
+  'FIL',
+  'GRT',
+  'KNC',
+  'LINK',
+  'LRC',
+  'LTC',
+  'MANA',
+  'MKR',
+  'NMR',
+  'NU',
+  'OMG',
+  'OXT',
+  'REN',
+  'REP',
+  'SNX',
+  'UMA',
+  'UNI',
+  'WBTC',
+  'XLM',
+  'XTZ',
+  'YFI',
+  'ZEC',
+  'ZRX',
+];

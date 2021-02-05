@@ -21,7 +21,6 @@ export function fillAmount(amount: string | number) {
     if (element) {
       setNativeValue(element, amount);
       element.dispatchEvent(new Event('input', { bubbles: true }));
-      console.log(element);
       clearInterval(checkIfElementExist);
     }
   }, 100);

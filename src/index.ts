@@ -1,11 +1,10 @@
 import { CoinbaseAutoTrader } from './interfaces';
-import { convertToTarget } from './convert-to-target';
+import { start } from './start';
 
 ((global: any) => {
   (global.CoinbaseAutoTrader as Partial<CoinbaseAutoTrader>) = {
-    convertToTarget,
-    // start,
+    start,
   };
 
-  // global.CoinbaseAutoTrader.start();
+  global.CoinbaseAutoTrader.start();
 })(window);

@@ -1,7 +1,7 @@
-import { clickOn, delay, fillAmount } from "./ui-handler";
+import { clickOn, delay, fillAmount } from "./convert-helper";
 import { COINS_SELECTOR_PAIRS, MAIN_TARGET_STABLE_COIN, SELECTORS } from "./constants";
 
-export async function convertToTarget(source: string, amount: number): Promise<void> {
+export async function convertCoinToTarget(source: string, amount: number): Promise<void> {
   clickOn(SELECTORS.BUY_SELL); // Buy/Sell.
   await delay(1000);
   clickOn(SELECTORS.CONVERT_TAB); // Convert
