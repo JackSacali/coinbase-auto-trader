@@ -4,7 +4,8 @@ import { convertCoinToTarget } from "./convert-executer";
 import { delay } from "./convert-helper";
 import { Coin } from "./interfaces";
 
-export function start(threshold: number = EXPECTED_AMOUNT) {
+export async function start(threshold: number = EXPECTED_AMOUNT) {
+  await delay(15000);
   const risingCoins = getRisingCoins(threshold);
   const coinPairs = formatCoins(risingCoins);
   const configuredCoins = filterConfiguredCoins(coinPairs);
