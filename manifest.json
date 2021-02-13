@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.coinbase.com/accounts"],
-      "js": ["dist/coinbase-auto-trader.js"]
+      "js": ["cbat.js"]
     }
   ],
   "permissions": [

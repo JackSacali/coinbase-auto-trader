@@ -1,8 +1,9 @@
 import { IndexString } from "./interfaces";
 
 export const MAIN_TARGET_STABLE_COIN = 'DAI';
-export const EXPECTED_AMOUNT = 101;
+export const EXPECTED_AMOUNT = 105;
 export const AMOUNT_TO_KEEP = 100;
+export const REFRESH_TIMER = 5; // In minutes
 
 export const SELECTORS: IndexString = {
   BUY_SELL: '.iKhbZm',

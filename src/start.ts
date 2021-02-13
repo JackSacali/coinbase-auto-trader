@@ -1,11 +1,11 @@
 import { filterConfiguredCoins, formatCoins, getRisingCoins } from "./coin-list-helper";
-import { AMOUNT_TO_KEEP, EXPECTED_AMOUNT } from "./constants";
+import { AMOUNT_TO_KEEP, EXPECTED_AMOUNT, REFRESH_TIMER } from "./constants";
 import { convertCoinToTarget } from "./convert-executer";
 import { delay } from "./convert-helper";
 import { Coin } from "./interfaces";
 
 export async function start(threshold: number = EXPECTED_AMOUNT) {
-  await delay(1000);
+  await delay(10000);
   const risingCoins = getRisingCoins(threshold);
   const coinPairs = formatCoins(risingCoins);
   const configuredCoins = filterConfiguredCoins(coinPairs);
@@ -15,6 +15,7 @@ export async function start(threshold: number = EXPECTED_AMOUNT) {
     executeConverts(configuredCoins);
   } else {
     console.log('📉 No matching coins!');
+    startRefreshTimer();
   }
 }
 
@@ -36,5 +37,11 @@ export async function executeConverts(coins: Coin[]): Promise<void> {
     executeConverts(coins);
   } else {
     console.log('✅ All iterations done!');
+    startRefreshTimer();
   }
+}
+
+export async function startRefreshTimer() {
+  await delay(REFRESH_TIMER * 1000 * 60);
+  location.reload();
 }
