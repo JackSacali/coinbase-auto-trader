@@ -10,7 +10,7 @@ export function clickOn(selector: string): void {
 
 export function delay(ms: number) {
   return new Promise(res => {
-    console.log('Waiting... ', ms);
+    console.log('⏳ Waiting... ', ms);
     return setTimeout(res, ms);
   });
 }
@@ -18,16 +18,8 @@ export function delay(ms: number) {
 export function fillAmount(amount: string | number) {
   const checkIfElementExist = setInterval(() => {
     const element: HTMLInputElement | null = document.querySelector('[data-element-handle="foldertab-active"] input');
-    if (element) {      
-      const valueSetter = Object.getOwnPropertyDescriptor(element, 'value')?.set;
-      const prototype = Object.getPrototypeOf(element);
-      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set;
-    
-      if (valueSetter && valueSetter !== prototypeValueSetter) {
-        prototypeValueSetter?.call(element, amount);
-      } else {
-        valueSetter?.call(element, amount);
-      }
+    if (element) {  
+      setNativeValue(element, amount);
 
       element.dispatchEvent(new Event('input', { bubbles: true }));
       clearInterval(checkIfElementExist);

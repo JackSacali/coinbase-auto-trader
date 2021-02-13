@@ -9,6 +9,6 @@ export interface IndexString {
 }
 
 export interface Coin {
-  abbreviation: string;
+  ticker: string;
   amount: number;
 }

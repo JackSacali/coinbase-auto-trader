@@ -5,34 +5,36 @@ import { delay } from "./convert-helper";
 import { Coin } from "./interfaces";
 
 export async function start(threshold: number = EXPECTED_AMOUNT) {
-  await delay(15000);
+  await delay(1000);
   const risingCoins = getRisingCoins(threshold);
   const coinPairs = formatCoins(risingCoins);
   const configuredCoins = filterConfiguredCoins(coinPairs);
-  console.log("🚀  Coins to convert:", configuredCoins);
-
-  (window as any).CoinbaseAutoTrader.currentIteration = 0;
-
-  executeConverts(configuredCoins);
+  if (configuredCoins.length) {
+    console.table(configuredCoins, ['ticker', 'amount']);
+    (window as any).CoinbaseAutoTrader.currentIteration = 0; 
+    executeConverts(configuredCoins);
+  } else {
+    console.log('📉 No matching coins!');
+  }
 }
 
 export async function executeConverts(coins: Coin[]): Promise<void> {
   const currentIteration = (window as any).CoinbaseAutoTrader.currentIteration;
-  console.log("🚀 Current iteration", currentIteration)
+  console.log('🔄 Current iteration: ', currentIteration);
 
   if (currentIteration < coins.length) {
     const coin = coins[currentIteration];
-    console.log(`Converting ${coin.amount - AMOUNT_TO_KEEP} of ${coin.abbreviation}...`);
+    console.log(`💸 Converting ${coin.amount - AMOUNT_TO_KEEP} of ${coin.ticker}...`);
     await delay(5000);
 
-    await convertCoinToTarget(coin.abbreviation, coin.amount - AMOUNT_TO_KEEP);
+    await convertCoinToTarget(coin.ticker, coin.amount - AMOUNT_TO_KEEP);
 
-    console.log(`Converting ${coin.abbreviation} done!`);
+    console.log(`💰 Converting ${coin.ticker} done!`);
 
     (window as any).CoinbaseAutoTrader.currentIteration = currentIteration + 1;
     
     executeConverts(coins);
   } else {
-    console.log('All iterations done!');
+    console.log('✅ All iterations done!');
   }
 }

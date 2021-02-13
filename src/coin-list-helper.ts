@@ -20,9 +20,9 @@ export function formatCoins(nodes: HTMLElement[]): Coin[] {
   nodes.forEach((element) => {
     const amount = parseFloat(element?.innerHTML?.replace(',', '')?.replace('€', ''));
     const regex = /[A-Z]/g;
-    const abbreviation = (element?.nextSibling as HTMLElement)?.innerHTML?.match(regex)?.join('') || '';
+    const ticker = (element?.nextSibling as HTMLElement)?.innerHTML?.match(regex)?.join('') || '';
 
-    result.push({ abbreviation, amount });
+    result.push({ ticker, amount });
   });
 
   return result;
@@ -30,6 +30,6 @@ export function formatCoins(nodes: HTMLElement[]): Coin[] {
 
 export function filterConfiguredCoins(coins: Coin[]): Coin[] {
   return coins.filter((coin) => {
-    return ACCEPTED_COINS.includes(coin.abbreviation);
+    return ACCEPTED_COINS.includes(coin.ticker);
   });
 }
