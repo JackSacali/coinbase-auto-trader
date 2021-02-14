@@ -6,13 +6,13 @@
   "content_scripts": [
     {
       "matches": ["https://www.coinbase.com/accounts"],
-      "js": ["cbat.js"]
+      "js": ["coinbase-auto-trader.js"]
     }
   ],
   "permissions": [
     "activeTab"
   ],
-  "page_action": {
+  "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "/images/icon_v16.png",
