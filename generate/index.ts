@@ -10,7 +10,7 @@ const generate = async () => {
     encoding: 'utf-8'
   });
 
-  const injectingCode = await fs.promises.readFile('generate/injector-base.js', {
+  const injectingCode = await fs.promises.readFile('generate/injector-base.ts', {
     encoding: 'utf-8'
   });
 
