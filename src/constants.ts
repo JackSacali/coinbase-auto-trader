@@ -1,8 +1,8 @@
 import { IndexString } from "./interfaces";
 
-export const MAIN_TARGET_STABLE_COIN = 'DAI';
-export const EXPECTED_AMOUNT = 80;
-export const AMOUNT_TO_KEEP = 75;
+export const TARGET_STORING_COIN = 'DAI';
+export const EXPECTED_AMOUNT = 75;
+export const AMOUNT_TO_KEEP = 70;
 export const REFRESH_TIMER = 5; // In minutes
 
 export const SELECTORS: IndexString = {
@@ -14,6 +14,9 @@ export const SELECTORS: IndexString = {
   CONVERT_CONFIRM_BUTTON: '[data-element-handle="convert-confirm-button"]',
   OVERLAY: '.hFwduY__overlay',
   COIN_VALUE: '.hdlfEh',
+  UI_CONTAINER: 'coinbase-auto-trader-container',
+  UI_OPERATION: 'coinbase-auto-trader-operation',
+  UI_TIMER: 'coinbase-auto-trader-timer',
 };
 
 export const COINS_SELECTOR_PAIRS: IndexString = {
@@ -70,7 +73,6 @@ export const ACCEPTED_COINS = [
   'BAND',
   'BCH',
   'BNT',
-  'BTC',
   'CGLD',
   'COMP',
   'CVC',

@@ -1,5 +1,5 @@
 import { clickOn, delay } from "./convert-helper";
-import { COINS_SELECTOR_PAIRS, MAIN_TARGET_STABLE_COIN, SELECTORS } from "./constants";
+import { COINS_SELECTOR_PAIRS, SELECTORS, TARGET_STORING_COIN } from "./constants";
 
 export async function convertCoinToTarget(source: string, amount: number): Promise<void> {
   clickOn(SELECTORS.BUY_SELL); // Buy/Sell.
@@ -14,11 +14,8 @@ export async function convertCoinToTarget(source: string, amount: number): Promi
 
   clickOn(SELECTORS.CURRENCY_LIST_TO); // To currency list
   await delay(100);
-  clickOn(`[data-element-handle="convert-to-select-${COINS_SELECTOR_PAIRS[MAIN_TARGET_STABLE_COIN]}"]`); // Select to currency
+  clickOn(`[data-element-handle="convert-to-select-${COINS_SELECTOR_PAIRS[TARGET_STORING_COIN]}"]`); // Select to currency
   await delay(3000);
-
-  console.log("..........");
-  
 
   (window as any).CoinbaseAutoTrader.fillAmount(amount);
   await delay(5000);

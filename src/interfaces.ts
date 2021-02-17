@@ -13,3 +13,13 @@ export interface Coin {
   ticker: string;
   amount: number;
 }
+
+export interface ElementParams {
+  tag?: string;
+  classes?: string[];
+  id?: string;
+  styles?: IndexString[];
+  attributes?: IndexString[];
+  innerHTML?: string;
+  children?: ElementParams[];
+}
