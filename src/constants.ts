@@ -1,8 +1,13 @@
 import { IndexString } from "./interfaces";
 
-export const TARGET_STORING_COIN = 'DAI';
-export const EXPECTED_AMOUNT = 75;
-export const AMOUNT_TO_KEEP = 70;
+export const TARGET_STORING_COIN = 'BTC';
+
+export const THRESHOLD_TO_SELL = 55;
+export const AMOUNT_TO_KEEP = 50;
+
+export const THRESHOLD_TO_BUY = 40;
+export const AMOUNT_TO_REACH = 50;
+
 export const REFRESH_TIMER = 5; // In minutes
 
 export const SELECTORS: IndexString = {
@@ -45,6 +50,7 @@ export const COINS_SELECTOR_PAIRS: IndexString = {
   LRC: 'loopring',
   LTC: 'litecoin',
   MANA: 'decentraland',
+  MATIC: 'polygon',
   MKR: 'maker',
   NMR: 'numeraire',
   NU: 'nucypher',
@@ -52,7 +58,9 @@ export const COINS_SELECTOR_PAIRS: IndexString = {
   OXT: 'orchid',
   REN: 'ren',
   REP: 'augur',
+  SKL: 'skale',
   SNX: 'synthetix-network-token',
+  SUSHI: 'sushiswap',
   UMA: 'uma',
   UNI: 'uniswap',
   USDC: 'usdc',
@@ -88,6 +96,7 @@ export const ACCEPTED_COINS = [
   'LRC',
   'LTC',
   'MANA',
+  'MATIC',
   'MKR',
   'NMR',
   'NU',
@@ -95,7 +104,9 @@ export const ACCEPTED_COINS = [
   'OXT',
   'REN',
   'REP',
+  'SKL',
   'SNX',
+  'SUSHI',
   'UMA',
   'UNI',
   'WBTC',
